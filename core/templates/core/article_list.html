@@ -1,0 +1,8 @@
+<h1>Articles ({{ articles|length }})</h1>  <!-- Affiche le nombre ici -->
+<ul>
+  {% for article in articles %}
+    <li>
+      <p>{{ article.titre }}</p>
+    </li>
+  {% endfor %}
+</ul>

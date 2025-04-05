@@ -1,0 +1,10 @@
+<h1>Actualités PSG</h1>
+<ul>
+  {% for article in articles %}
+    <li>
+      <a href="{{ article.lien }}" target="_blank">{{ article.titre }}</a><br>
+      <small>{{ article.source }} – {{ article.date_pub|date:"d M Y H:i" }}</small>
+      <p>{{ article.description|safe }}</p>
+    </li>
+  {% endfor %}
+</ul>
