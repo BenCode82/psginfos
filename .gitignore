@@ -1,0 +1,25 @@
+# Node
+frontend/node_modules/
+frontend/build/
+
+# React cache files
+frontend/.parcel-cache/
+frontend/.cache/
+frontend/.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+
+# Environnements virtuels
+venv/
+env/
+
+# OS
+.DS_Store
+
+# IDE
+.vscode/
