@@ -11,6 +11,37 @@ FEEDS = [
     ("Le Parisien - PSG", "https://www.leparisien.fr/sports/football/psg/rss.xml"),
 ]
 
+
+# NEWS_API_KEY = "TA_CLE_API"
+# NEWS_API_URL = "https://newsapi.org/v2/everything"
+
+# def fetch_from_newsapi():
+#     params = {
+#         'q': 'PSG',
+#         'language': 'fr',
+#         'sortBy': 'publishedAt',
+#         'apiKey': NEWS_API_KEY
+#     }
+
+#     response = requests.get(NEWS_API_URL, params=params)
+#     data = response.json()
+
+#     for article in data.get('articles', [])[:10]:
+#         titre = article['title']
+#         lien = article['url']
+#         date_pub = datetime.strptime(article['publishedAt'], '%Y-%m-%dT%H:%M:%SZ')
+#         source = article['source']['name']
+#         image_url = article['urlToImage']
+
+#         if not Article.objects.filter(lien=lien).exists():
+#             Article.objects.create(
+#                 titre=titre,
+#                 lien=lien,
+#                 source=source,
+#                 date_pub=date_pub,
+#                 image_url=image_url or ''
+#             )
+
 def get_image_from_entry(entry):
     if 'media_content' in entry:
         return entry.media_content[0]['url']

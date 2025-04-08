@@ -1,5 +1,5 @@
 # Core Django
-Django==5.1.6
+django==5.1.6
 djangorestframework==3.16.0
 django-cors-headers==4.7.0
 asgiref==3.8.1
@@ -9,6 +9,7 @@ pytz==2025.2
 feedparser==6.0.11
 beautifulsoup4==4.13.3
 gunicorn==23.0.0
+uWSGI==2.0.28
 
 # Database (si vous utilisez PostgreSQL)
 psycopg2-binary==2.9.6  # Plus léger que psycopg2

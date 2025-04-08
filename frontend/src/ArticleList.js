@@ -9,8 +9,8 @@ function ArticleList() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    // axios.get("https://benjaminmontet.alwaysdata.net/api/articles/")
     axios.get('http://127.0.0.1:8000/api/articles/')
-    // "https://benjaminmontet.alwaysdata.net/api/articles/"
       .then(response => {
         const sorted = response.data.sort((a, b) => new Date(b.date_pub) - new Date(a.date_pub));
         setArticles(sorted);
