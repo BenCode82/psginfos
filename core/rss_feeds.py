@@ -11,6 +11,7 @@ FEEDS = [
 ]
 
 NEWS_API_KEY = "662d1a968fd44a19a6c12e2083278c62"
+
 NEWS_API_URL = "https://newsapi.org/v2/everything"
 
 
@@ -40,7 +41,6 @@ def fetch_from_apis():
     params = {
         'q': 'PSG',
         'language': 'fr',
-        'from': "2025-04-07",
         'apiKey': NEWS_API_KEY
     }
 
@@ -103,3 +103,14 @@ def fetch_articles():
             article.delete()
 
     return article_add_count
+
+def delete_all_articles():
+    articles = Article.objects.all()
+    total = len(articles)
+
+    if total == 0:
+        return 0
+
+    for article in articles:
+        article.delete()
+    return total

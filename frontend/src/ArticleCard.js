@@ -1,4 +1,3 @@
-import React, { useRef, useState, useEffect } from 'react';
 import { Card, Col } from 'react-bootstrap';
 
 const ArticleCard = ({ article }) => {

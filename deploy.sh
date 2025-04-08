@@ -9,15 +9,19 @@ source /home/benjaminmontet/env/bin/activate
 cd /home/benjaminmontet/www/
 
 # Étape 5 : Collecter des nouveaux articles
+@echo ""
 echo "📁 Collecte des nouveaux articles..."
 python manage.py fetch_articles
 
 # Étape 6 : Redémarrer l’application (forcer uWSGI à recharger)
+@echo ""
 echo "🔁 Redémarrage de l'application Django..."
 touch /home/benjaminmontet/www/psg_api/wsgi.py
 # gunicorn --config gunicorn.conf.py psg_api.wsgi:application
 
+@echo ""
 echo "✅ Déploiement terminé !"
+
 
 
 # echo "📦 Installation des dépendances..."

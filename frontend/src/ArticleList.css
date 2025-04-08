@@ -1,16 +1,46 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
 
-body {
-  /* background: linear-gradient(135deg, #1c2d55 0%, #c72c41 100%); */
-  background: linear-gradient(135deg, #1c2d55 0%, #eaeaea 100%);
-  min-height: 100vh;
+body, html, #root {
+  height: 100%;
   margin: 0;
+}
+
+body {
   font-family: 'Segoe UI', sans-serif;
   color: #f4f4f4;
+
+  min-height: 100vh;
+  margin: 0;
+
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  background: linear-gradient(135deg, #1c2d55 0%, #4c6581 100%);
+  flex: 1;
+}
+
+.footer {
+  /* background: linear-gradient(135deg, #c72c41 0%, #eaeaea 100%); */
+  background-color: #1c2d55;
+  color: #f4f4f4;
+  font-size: 12px;
+
+  /* padding: 0.5rem 1rem; */
+  padding-top: 0.5rem;
+  padding-bottom: 0.05rem;
+
+  text-align: center;
+  /* position: fixed;
+  bottom: 0; */
+
+  width: 100%;
+  z-index: 1000;
+
 }
 
 .typewriter-container {
-  /* padding: 30px 0; */
   padding-top: 30px;
   text-align: center;
 }
@@ -22,14 +52,14 @@ body {
   color: white;
   overflow: hidden;
 
-  border-right: .15em solid #c72c41;;
+  border-right: .15em solid #c72c41;
 
   white-space: nowrap;
   margin: 0 auto;
   letter-spacing: .05em;
 }
 
-/* Par défaut : pas d'animation (au cas où) */
+/* Par défaut */
 .typing-effect {
   animation: none;
 }
@@ -58,7 +88,6 @@ body {
   }
 }
 
-/* Définis les animations UNE SEULE FOIS, en dehors des media queries */
 @keyframes typing-desktop {
   from { width: 0 }
   to { width: 44% }
@@ -87,13 +116,15 @@ body {
   transition: "transform 0.3s ease";
 
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(125, 31, 109, 0.05);
+  box-shadow: 0 4px 12px rgba(199, 44, 65, 0.05);
 
   display: flex;
   flex-direction: column;
+
+  transition: transform 0.4s, box-shadow 0.4s;
 }
 
-.custom-card::after {
+/* .custom-card::after {
   content: "";
   position: absolute;
   top: 0;
@@ -103,9 +134,10 @@ body {
 
   background-color: rgba(51, 65, 79, 0.06);
   pointer-events: none;
-}
+} */
 
 .custom-card:hover {
-  transform: translateY(-3px) rotateX(1deg) rotateY(1deg) rotateZ(1deg);
-  box-shadow: 0 6px 20px rgba(199, 44, 65, 0.5);
+  /* transform: perspective(); */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(196, 188, 189, 0.2);
 }
