@@ -1,21 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { Card, Col } from 'react-bootstrap';
 
-// import Vibrant from 'node-vibrant';
-
-const ArticleCard = ({ article }) =>
-{
-  const [bgColor, setBgColor] = useState('rgba(232, 202, 202, 1)');
-
-  useEffect(() => {
-
-    // Vibrant.from('/root/code/BenCode82/PythonCoding/psg_api/frontend/public/logo.png').getPalette()
-    //   .then(palette => {
-    //     console.log(palette.Vibrant.hex);
-    // });
-
-  }, []);
-
+const ArticleCard = ({ article }) => {
   return (
     <Col xs={12} sm={6} md={3} className="mb-4">
       <Card className="custom-card">
@@ -35,7 +21,7 @@ const ArticleCard = ({ article }) =>
             <Card.Title>{article.titre}</Card.Title>
           </Card.Body>
 
-          <Card.Text style={{ backgroundColor: bgColor }}>
+          <Card.Text>
             {new Date(article.date_pub).toLocaleDateString('fr-FR', {
               year: 'numeric',
               month: 'long',
