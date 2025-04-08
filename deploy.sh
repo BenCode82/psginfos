@@ -8,14 +8,6 @@ source /home/benjaminmontet/env/bin/activate
 # Étape 2 : Aller dans le dossier de l'appli
 cd /home/benjaminmontet/www/
 
-# Étape 3 : Appliquer les migrations
-echo "🛠️ Migration de la base de données..."
-python manage.py migrate --noinput
-
-# Étape 4 : Collecter les fichiers statiques
-echo "📁 Collecte des fichiers statiques..."
-python manage.py collectstatic --noinput
-
 # Étape 5 : Collecter des nouveaux articles
 echo "📁 Collecte des nouveaux articles..."
 python manage.py fetch_articles
@@ -30,3 +22,11 @@ echo "✅ Déploiement terminé !"
 
 # echo "📦 Installation des dépendances..."
 # pip install -r requirements.txt
+
+# # Étape 3 : Appliquer les migrations
+# echo "🛠️ Migration de la base de données..."
+# python manage.py migrate --noinput
+
+# # Étape 4 : Collecter les fichiers statiques
+# echo "📁 Collecte des fichiers statiques..."
+# python manage.py collectstatic --noinput
