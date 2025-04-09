@@ -17,6 +17,7 @@ __pycache__/
 # Environnements virtuels
 venv/
 env/
+.env
 
 # OS
 .DS_Store

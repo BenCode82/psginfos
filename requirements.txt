@@ -10,6 +10,7 @@ feedparser==6.0.11
 beautifulsoup4==4.13.3
 gunicorn==23.0.0
 uWSGI==2.0.28
+python-dotenv==1.1.0
 
 # Database (si vous utilisez PostgreSQL)
 psycopg2-binary==2.9.6  # Plus léger que psycopg2

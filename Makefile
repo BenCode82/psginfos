@@ -27,6 +27,8 @@ deploy:
 
 	@echo ""
 	@echo "🌐 Ouvre ta page ici --> http://benjaminmontet.me/psginfos/"
+	@echo "🌐 Ouvre ta page ici --> http://www.benjaminmontet.me/psginfos/"
+	@echo "🌐 Ouvre ta page ici --> https://www.benjaminmontet.me/psginfos/"
 	@echo ""
 
 

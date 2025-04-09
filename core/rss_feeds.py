@@ -5,12 +5,16 @@ from datetime import datetime
 import requests
 from bs4 import BeautifulSoup
 
+from django.conf import settings
+
 FEEDS = [
     ("Parisfans", "https://www.parisfans.fr/feed"),
     ("Le Parisien - PSG", "https://www.leparisien.fr/sports/football/psg/rss.xml"),
 ]
 
-NEWS_API_KEY = "662d1a968fd44a19a6c12e2083278c62"
+NEWS_API_KEY = settings.NEWS_API_KEY
+
+
 NEWS_API_URL = "https://newsapi.org/v2/everything"
 
 
