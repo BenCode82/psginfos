@@ -8,6 +8,8 @@ import 'aos/dist/aos.css';
 import './ArticleList.css';
 import ArticleCard from './ArticleCard';
 
+import ScrollToTopButton from './components/ScrollToTopButton';
+
 function ArticleList() {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -45,6 +47,8 @@ function ArticleList() {
       }
     };
 
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
@@ -77,6 +81,8 @@ function ArticleList() {
       </div>
 
       <div id="progress-bar"></div>
+
+      <ScrollToTopButton />
 
     </>
   );

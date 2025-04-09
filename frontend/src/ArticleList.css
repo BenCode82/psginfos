@@ -172,32 +172,3 @@ main {
     transform: translateY(0) rotate(0);
   }
 }
-
-.scroll-top-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 50px;
-  height: 50px;
-  background: #c72c41;
-  color: white;
-  border: none;
-  border-radius: 50%;
-  font-size: 1.2rem;
-  cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  opacity: 0; /* Masqué par défaut */
-  transform: translateY(20px); /* Effet d'apparition */
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  z-index: 1000;
-}
-
-.scroll-top-btn:hover {
-  background: #a51d32;
-  transform: translateY(0) scale(1.05);
-}
-
-.scroll-top-btn.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
