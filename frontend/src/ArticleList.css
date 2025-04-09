@@ -119,7 +119,7 @@ main {
 
   position: relative;
 
-  background: linear-gradient(200deg, #1c2d55 0%, #f4f4f4 60%);
+  background: linear-gradient(200deg, #1c2d55 -30%, #f4f4f4 60%);
   /* background-color: #f4f4f4; */
   overflow: hidden;
 

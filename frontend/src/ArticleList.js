@@ -26,9 +26,9 @@ function ArticleList() {
     .catch(error => console.error("Erreur API :", error));
   }, []);
 
-  useEffect(() => { // AOS : animer des éléments sur le scroll
+  useEffect(() => { // AOS : animer des éléments sur le chargement de la page
     AOS.init({
-      duration: 800,       // Durée animation (ms)
+      duration: 1200,       // Durée animation (ms)
       easing: 'ease-in-out', // Type d'animation
       once: true,
       mirror: false,       // Ne pas re-animer en remontant
