@@ -12,7 +12,7 @@ function ArticleList() {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
+  useEffect(() => { // Fetch sur l'API
     axios.get("https://benjaminmontet.alwaysdata.net/api/articles/")
     // axios.get('http://127.0.0.1:8000/api/articles/')
       .then(response => {
@@ -21,28 +21,42 @@ function ArticleList() {
         setLoading(false);
 
       })
-      .catch(error => console.error("Erreur API :", error));
+    .catch(error => console.error("Erreur API :", error));
+  }, []);
 
-      AOS.init({
-        duration: 800,       // Durée animation (ms)
-        easing: 'ease-in-out', // Type d'animation
-        once: true,
-        mirror: false,       // Ne pas re-animer en remontant
-        offset: 200,         // Déclenchement 120px avant l'élément
-      });
+  useEffect(() => { // AOS : animer des éléments sur le scroll
+    AOS.init({
+      duration: 800,       // Durée animation (ms)
+      easing: 'ease-in-out', // Type d'animation
+      once: true,
+      mirror: false,       // Ne pas re-animer en remontant
+      offset: 200,         // Déclenchement 120px avant l'élément
+    });
+  }, []);
+
+  useEffect(() => { // progress bar en bas de page
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercent = (scrollTop / docHeight) * 100;
+      const progressBar = document.getElementById("progress-bar");
+      if (progressBar) {
+        progressBar.style.width = `${scrollPercent}%`;
+      }
+    };
+
   }, []);
 
   return (
     <>
+
       <div data-aos="fade-up">
-
         <main>
-
-          <div className="typewriter-container">
+          <header className="typewriter-container">
             <h1 className="typewriter-text typing-effect">
               Bienvenue sur le fil d'actus autour du PSG !
             </h1>
-          </div>
+          </header>
 
           <Container className="mt-5">
             {loading ? (
@@ -50,18 +64,20 @@ function ArticleList() {
             ) : (
               <Row>
                 {articles.map((article) => (
-                  <ArticleCard key={article.id} article={article} />
+                  <ArticleCard article={article}/>
                 ))}
               </Row>
             )}
           </Container>
         </main>
 
-        <footer  className="footer">
+        <footer className="footer">
           <p>© {new Date().getFullYear()} - Propulsé par React ⚛️ & Django 🐍</p>
         </footer>
-
       </div>
+
+      <div id="progress-bar"></div>
+
     </>
   );
 }

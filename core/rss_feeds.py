@@ -11,7 +11,6 @@ FEEDS = [
 ]
 
 NEWS_API_KEY = "662d1a968fd44a19a6c12e2083278c62"
-
 NEWS_API_URL = "https://newsapi.org/v2/everything"
 
 

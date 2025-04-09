@@ -27,22 +27,33 @@ main {
   color: #f4f4f4;
   font-size: 12px;
 
-  /* padding: 0.5rem 1rem; */
   padding-top: 0.5rem;
   padding-bottom: 0.05rem;
 
   text-align: center;
-  /* position: fixed;
-  bottom: 0; */
 
   width: 100%;
-  z-index: 1000;
-
 }
 
 .typewriter-container {
   padding-top: 30px;
   text-align: center;
+
+  transition: height 0.5s ease-out;
+
+  animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.7;
+    transform: scale(1);
+
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.01);
+  }
 }
 
 .typewriter-text {
@@ -52,7 +63,7 @@ main {
   color: white;
   overflow: hidden;
 
-  border-right: .15em solid #c72c41;
+  border-right: .25em solid #c72c41;
 
   white-space: nowrap;
   margin: 0 auto;
@@ -90,7 +101,7 @@ main {
 
 @keyframes typing-desktop {
   from { width: 0 }
-  to { width: 44% }
+  to { width: 40% }
 }
 
 @keyframes typing-mobile {
@@ -107,7 +118,9 @@ main {
   height: 100%;
 
   position: relative;
-  background-color: #f4f4f4;
+
+  background: linear-gradient(200deg, #1c2d55 0%, #f4f4f4 60%);
+  /* background-color: #f4f4f4; */
   overflow: hidden;
 
   color: "#1c2d55";
@@ -124,20 +137,67 @@ main {
   transition: transform 0.4s, box-shadow 0.4s;
 }
 
-/* .custom-card::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-
-  background-color: rgba(51, 65, 79, 0.06);
-  pointer-events: none;
-} */
-
 .custom-card:hover {
-  /* transform: perspective(); */
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(196, 188, 189, 0.2);
+  box-shadow: 0 6px 20px rgba(196, 188, 189, 0.4);
+
+  border-radius: 14px;
+  transition: all 0.1s ease;
+}
+
+#progress-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+
+  width: 0%;
+  height: 8px;
+
+  background-color: #c72c41;
+  z-index: 1000;
+  transition: width 0.25s ease-out;
+}
+
+[data-aos="wave"] {
+  animation: waveIn 1s ease-out both;
+}
+
+@keyframes waveIn {
+  0% {
+    opacity: 0;
+    transform: translateY(50px) rotate(-1deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotate(0);
+  }
+}
+
+.scroll-top-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background: #c72c41;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  opacity: 0; /* Masqué par défaut */
+  transform: translateY(20px); /* Effet d'apparition */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 1000;
+}
+
+.scroll-top-btn:hover {
+  background: #a51d32;
+  transform: translateY(0) scale(1.05);
+}
+
+.scroll-top-btn.visible {
+  opacity: 1;
+  transform: translateY(0);
 }

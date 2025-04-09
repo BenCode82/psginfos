@@ -7,6 +7,7 @@ const ArticleCard = ({ article }) => {
         <a href={article.lien} target="_blank" rel="noopener noreferrer" className="btn mt-2">
 
           <Card.Img
+            data-aos="wave"
             variant="top"
             src={article.image_url}
             style={{
@@ -16,11 +17,11 @@ const ArticleCard = ({ article }) => {
             }}
           />
 
-          <Card.Body style={{ flex: '1 1 auto' }}>
+          <Card.Body data-aos="wave" style={{ flex: '1 1 auto' }}>
             <Card.Title>{article.titre}</Card.Title>
           </Card.Body>
 
-          <Card.Text>
+          <Card.Text data-aos="wave">
             {new Date(article.date_pub).toLocaleDateString('fr-FR', {
               year: 'numeric',
               month: 'long',
