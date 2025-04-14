@@ -1,4 +1,4 @@
-# Makefile pour déployer le projet sur AlwaysData
+# # # Makefile pour déployer le projet sur AlwaysData
 
 # Variables de configuration
 USER = benjaminmontet
@@ -26,8 +26,6 @@ deploy:
 	@echo "------------------------------------------"
 
 	@echo ""
-	@echo "🌐 Ouvre ta page ici --> http://benjaminmontet.me/psginfos/"
-	@echo "🌐 Ouvre ta page ici --> http://www.benjaminmontet.me/psginfos/"
 	@echo "🌐 Ouvre ta page ici --> https://www.benjaminmontet.me/psginfos/"
 	@echo ""
 

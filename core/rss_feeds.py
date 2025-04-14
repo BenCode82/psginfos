@@ -9,12 +9,11 @@ from django.conf import settings
 
 FEEDS = [
     ("Parisfans", "https://www.parisfans.fr/feed"),
-    ("Le Parisien - PSG", "https://www.leparisien.fr/sports/football/psg/rss.xml"),
+    ("Le Parisien", "https://www.leparisien.fr/sports/football/psg/rss.xml"),
+    ("Marca", "https://e00-marca.uecdn.es/rss/en/football/psg.xml"),
 ]
 
 NEWS_API_KEY = settings.NEWS_API_KEY
-
-
 NEWS_API_URL = "https://newsapi.org/v2/everything"
 
 
@@ -90,7 +89,7 @@ def fetch_from_rss():
 
 def fetch_articles():
     article_add_count = 0
-    article_add_count += fetch_from_apis()
+    # article_add_count += fetch_from_apis()
     article_add_count += fetch_from_rss()
 
     # Supprimer des articles pour garder seulement les 40 plus récents (par id)
