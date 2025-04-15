@@ -8,6 +8,7 @@ class Article(models.Model):
     date_pub = models.DateTimeField(default=timezone.now)
     source = models.CharField(max_length=100)
     image_url = models.URLField(blank=True, null=True)
+    hashtags = models.TextField(blank=True, null=True)
 
     def __str__(self):
         return self.titre

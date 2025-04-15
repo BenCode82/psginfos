@@ -13,6 +13,7 @@
     "axios": "^1.8.4",
     "bootstrap": "^5.3.5",
     "gh-pages": "^6.3.0",
+    "openai": "^4.94.0",
     "postcss": "^8.5.3",
     "react": "^19.1.0",
     "react-bootstrap": "^2.10.9",

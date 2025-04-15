@@ -21,6 +21,12 @@ const ArticleCard = ({ article }) => {
             <Card.Title>{article.titre}</Card.Title>
           </Card.Body>
 
+          <Card.Text data-aos="wave" className="hashtags">
+            {article.hashtags.split(" ").map((tag, index) => (
+              <span key={index} className="hashtag">{tag}</span>
+            ))}
+          </Card.Text>
+
           <Card.Text data-aos="wave">
             {new Date(article.date_pub).toLocaleDateString('fr-FR', {
               year: 'numeric',

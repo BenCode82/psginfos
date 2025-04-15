@@ -1,11 +1,11 @@
 from .models import Article
+from django.conf import settings
+
 import feedparser
 from datetime import datetime
-
 import requests
 from bs4 import BeautifulSoup
-
-from django.conf import settings
+from openai import OpenAI
 
 FEEDS = [
     ("Parisfans", "https://www.parisfans.fr/feed"),
@@ -78,14 +78,45 @@ def fetch_from_rss():
 
             if not Article.objects.filter(lien=entry.link).exists():
                 article_rrs_count += 1
-                Article.objects.create(
+                article = Article.objects.create(
                     titre=entry.title,
                     lien=entry.link,
                     source=source_name,
                     date_pub=datetime(*entry.published_parsed[:6]) if hasattr(entry, "published_parsed") else datetime.now(),
-                    image_url=img_url
+                    image_url=img_url,
+                    hashtags=generate_hashtags(extract_paragraphs(entry.link))
                 )
+
     return article_rrs_count
+
+def extract_paragraphs(url):
+    try:
+        response = requests.get(url)
+        response.raise_for_status()  # lève une erreur si le statut HTTP est mauvais
+
+        soup = BeautifulSoup(response.text, 'html.parser')
+        paragraphs = soup.find_all('p')
+
+        # Récupère le texte de chaque balise <p> et les joint avec deux sauts de ligne
+        text = '\n\n'.join(p.get_text(strip=True) for p in paragraphs)
+        return text
+
+    except requests.exceptions.RequestException as e:
+        return f"Erreur lors de la récupération de l'URL : {e}"
+
+def generate_hashtags(text):
+
+    client = OpenAI(api_key=settings.OPENAI_API_KEY)
+
+    response = client.chat.completions.create(
+        model="gpt-3.5-turbo",
+        messages=[
+            {"role": "system", "content": "Extrais 4 hashtags pertinents en français. Réponds uniquement avec les hashtags séparés par des espaces."},
+            {"role": "user", "content": text}
+        ]
+    )
+    return response.choices[0].message.content
+
 
 def fetch_articles():
     article_add_count = 0
@@ -93,7 +124,7 @@ def fetch_articles():
     article_add_count += fetch_from_rss()
 
     # Supprimer des articles pour garder seulement les 40 plus récents (par id)
-    max_articles = 40
+    max_articles = 5
     articles_total = Article.objects.count()
 
     if articles_total > max_articles:
@@ -105,6 +136,7 @@ def fetch_articles():
             article.delete()
 
     return article_add_count
+
 
 def delete_all_articles():
     articles = Article.objects.all()

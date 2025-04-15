@@ -21,19 +21,6 @@ main {
   flex: 1;
 }
 
-.footer {
-  /* background: linear-gradient(135deg, #c72c41 0%, #eaeaea 100%); */
-  background-color: #1c2d55;
-  color: #f4f4f4;
-  font-size: 12px;
-
-  padding-top: 0.5rem;
-  padding-bottom: 0.05rem;
-
-  text-align: center;
-
-  width: 100%;
-}
 
 .typewriter-container {
   padding-top: 30px;
@@ -82,8 +69,8 @@ main {
   }
   .typing-effect {
     animation:
-      typing-desktop 3.5s steps(44, end),
-      blink-caret .75s step-end infinite;
+    typing-desktop 3.5s steps(44, end),
+    blink-caret .75s step-end infinite;
   }
 }
 
@@ -94,8 +81,8 @@ main {
   }
   .typing-effect {
     animation:
-      typing-mobile 2s steps(20, end),
-      blink-caret .6s step-end infinite;
+    typing-mobile 2s steps(20, end),
+    blink-caret .6s step-end infinite;
   }
 }
 
@@ -119,8 +106,7 @@ main {
 
   position: relative;
 
-  background: linear-gradient(200deg, #1c2d55 -30%, #f4f4f4 60%);
-  /* background-color: #f4f4f4; */
+  background: linear-gradient(200deg, #1c2d55 0%, #f4f4f4 80%);
   overflow: hidden;
 
   color: "#1c2d55";
@@ -171,4 +157,28 @@ main {
     opacity: 1;
     transform: translateY(0) rotate(0);
   }
+}
+
+.hashtag {
+  background-color: #e0f7fa;
+  color: #007bff;
+  padding: 3px 8px;
+  margin: 3px;
+  border-radius: 15px;
+  font-size: 0.85rem;
+  display: inline-block;
+  transition: background-color 0.2s;
+}
+
+.footer {
+  background-color: #1c2d55;
+  color: #f4f4f4;
+  font-size: 12px;
+
+  padding-top: 0.5rem;
+  padding-bottom: 0.05rem;
+
+  text-align: center;
+
+  width: 100%;
 }

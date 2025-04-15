@@ -20,6 +20,7 @@ load_dotenv()  # Par défaut, cherche le fichier .env dans le même dossier que 
 
 # Accès à la clé
 NEWS_API_KEY = os.getenv("NEWS_API_KEY")  # None si la variable n'existe pas
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
