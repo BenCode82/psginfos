@@ -26,4 +26,4 @@ env/
 .vscode/
 
 #Test persos
-.req.txt
+.reqs.txt

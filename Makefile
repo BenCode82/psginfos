@@ -1,4 +1,5 @@
 # # # Makefile pour déployer le projet sur AlwaysData
+.PHONY: deploy
 
 # Variables de configuration
 USER = benjaminmontet
@@ -8,7 +9,7 @@ HOST = ssh-benjaminmontet.alwaysdata.net
 deploy:
 	@echo "🚀 Pousser le code sur AlwaysData..."
 # copier seulement le backend Django du projet
-	rsync -av --exclude '.git' --exclude 'venv' --exclude 'frontend' --exclude 'Makefile' . benjaminmontet@ssh-benjaminmontet.alwaysdata.net:/home/benjaminmontet/www/
+	rsync -av --exclude 'env' --exclude '__pycache__' backend/ benjaminmontet@ssh-benjaminmontet.alwaysdata.net:/home/benjaminmontet/www/
 	@echo "✅ Code poussé avec succès."
 
 # deplacer et lancer "deploy.sh"

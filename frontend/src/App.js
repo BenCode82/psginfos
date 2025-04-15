@@ -1,5 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+
 import ArticleList from './ArticleList';
+import './App.css';
 
 function App() {
   return (
